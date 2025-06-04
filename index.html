@@ -1,127 +1,267 @@
 <!DOCTYPE html>
-<html lang="en-us">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Unity Web Player | Tag-Team Takedown</title>
-    <link rel="shortcut icon" href="TemplateData/favicon.ico">
-    <link rel="stylesheet" href="TemplateData/style.css">
-  </head>
-  <body>
-    <div id="unity-container" class="unity-desktop">
-      <canvas id="unity-canvas" width=960 height=600 tabindex="-1"></canvas>
-      <div id="unity-loading-bar">
-        <div id="unity-logo"></div>
-        <div id="unity-progress-bar-empty">
-          <div id="unity-progress-bar-full"></div>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="description" content="Tag-Team Takedown - A 2D fighting game" />
+
+        <link rel="apple-touch-icon" sizes="180x180" href="Assets/favicon/180.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="Assets/favicon/32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="Assets/favicon/16.png" />
+        <link rel="icon" type="image/ico" href="Assets/favicon/favicon.ico" />
+
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Gaegu&family=Knewave&display=swap"
+            rel="stylesheet"
+        />
+
+        <title>Tag-Team Takedown</title>
+        <link rel="stylesheet" href="styles.css" />
+        <script src="script.js" defer></script>
+
+        <svg style="display: none" xmlns="http://www.w3.org/2000/svg">
+            <!-- https://www.svgrepo.com/svg/532511/play -->
+            <symbol id="icon-play" viewBox="0 0 24 24" fill="none">
+                <path
+                    d="M16.6582 9.28638C18.098 10.1862 18.8178 10.6361 19.0647 11.2122C19.2803 11.7152 19.2803 12.2847 19.0647 12.7878C18.8178 13.3638 18.098 13.8137 16.6582 14.7136L9.896 18.94C8.29805 19.9387 7.49907 20.4381 6.83973 20.385C6.26501 20.3388 5.73818 20.0469 5.3944 19.584C5 19.053 5 18.1108 5 16.2264V7.77357C5 5.88919 5 4.94701 5.3944 4.41598C5.73818 3.9531 6.26501 3.66111 6.83973 3.6149C7.49907 3.5619 8.29805 4.06126 9.896 5.05998L16.6582 9.28638Z"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linejoin="round"
+                />
+            </symbol>
+
+            <!-- https://www.svgrepo.com/svg/503031/fullscreen -->
+            <symbol id="icon-fullscreen" viewBox="0 0 24 24">
+                <path
+                    fill="currentColor"
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M18 4.654v.291a10 10 0 0 0-1.763 1.404l-2.944 2.944a1 1 0 0 0 1.414 1.414l2.933-2.932A9.995 9.995 0 0 0 19.05 6h.296l-.09.39A9.998 9.998 0 0 0 19 8.64v.857a1 1 0 1 0 2 0V4.503a1.5 1.5 0 0 0-1.5-1.5L14.5 3a1 1 0 1 0 0 2h.861a10 10 0 0 0 2.249-.256l.39-.09zM4.95 18a10 10 0 0 1 1.41-1.775l2.933-2.932a1 1 0 0 1 1.414 1.414l-2.944 2.944A9.998 9.998 0 0 1 6 19.055v.291l.39-.09A9.998 9.998 0 0 1 8.64 19H9.5a1 1 0 1 1 0 2l-5-.003a1.5 1.5 0 0 1-1.5-1.5V14.5a1 1 0 1 1 2 0v.861a10 10 0 0 1-.256 2.249l-.09.39h.295z"
+                />
+            </symbol>
+
+            <!-- https://www.svgrepo.com/svg/504388/github -->
+            <symbol id="icon-github" viewBox="0 0 192 192" fill="none">
+                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                <g id="SVGRepo_iconCarrier">
+                    <path
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="12"
+                        d="M120.755 170c.03-4.669.059-20.874.059-27.29 0-9.272-3.167-15.339-6.719-18.41 22.051-2.464 45.201-10.863 45.201-49.067 0-10.855-3.824-19.735-10.175-26.683 1.017-2.516 4.413-12.63-.987-26.32 0 0-8.296-2.672-27.202 10.204-7.912-2.213-16.371-3.308-24.784-3.352-8.414.044-16.872 1.14-24.785 3.352C52.457 19.558 44.162 22.23 44.162 22.23c-5.4 13.69-2.004 23.804-.987 26.32C36.824 55.498 33 64.378 33 75.233c0 38.204 23.149 46.603 45.2 49.067-3.551 3.071-6.719 9.138-6.719 18.41 0 6.416.03 22.621.059 27.29M27 130c9.939.703 15.67 9.735 15.67 9.735 8.834 15.199 23.178 10.803 28.815 8.265"
+                    ></path>
+                </g>
+            </symbol>
+
+            <!-- https://www.svgrepo.com/svg/488570/envelope -->
+            <symbol id="icon-email" fill="currentColor" viewBox="-2.5 3 26 26">
+                <path
+                    d="M18 8.32h-15.12c-1.56 0-2.84 1.28-2.84 2.84v9.64c0 1.56 1.28 2.84 2.84 2.84h15.12c1.56 0 2.84-1.28 2.84-2.84v-9.64c0-1.56-1.24-2.84-2.84-2.84zM2.88 10h15.12c0.64 0 1.16 0.52 1.16 1.16v0.4l-8.040 5.6c-0.36 0.24-1.040 0.24-1.4 0l-8.040-5.6v-0.4c0.040-0.64 0.56-1.16 1.2-1.16zM18 22h-15.12c-0.64 0-1.16-0.52-1.16-1.16v-7.24l7.080 4.92c0.48 0.32 1.080 0.48 1.68 0.48s1.2-0.16 1.68-0.48l7.040-4.92v7.2c0 0.68-0.56 1.2-1.2 1.2z"
+                ></path>
+            </symbol>
+        </svg>
+    </head>
+
+    <body>
+        <div class="header">
+            <div>
+                <img height="64px" src="Assets/fighter.gif" />
+                <h1 class="title">Tag-Team Takedown</h1>
+            </div>
+            <div class="navigation">
+                <a class="button" href="#play">Play</a>
+                <a class="button" href="#about">About</a>
+                <a class="button" href="#devlog">Devlog</a>
+                <a class="button" href="#credits">Credits</a>
+                <a class="button" href="#references">References</a>
+            </div>
         </div>
-      </div>
-      <div id="unity-warning"> </div>
-      <div id="unity-footer">
-        <div id="unity-logo-title-footer"></div>
-        <div id="unity-fullscreen-button"></div>
-        <div id="unity-build-title">Tag-Team Takedown</div>
-      </div>
-    </div>
-    <script>
-      var canvas = document.querySelector("#unity-canvas");
 
-      // Shows a temporary message banner/ribbon for a few seconds, or
-      // a permanent error message on top of the canvas if type=='error'.
-      // If type=='warning', a yellow highlight color is used.
-      // Modify or remove this function to customize the visually presented
-      // way that non-critical warnings and error messages are presented to the
-      // user.
-      function unityShowBanner(msg, type) {
-        var warningBanner = document.querySelector("#unity-warning");
-        function updateBannerVisibility() {
-          warningBanner.style.display = warningBanner.children.length ? 'block' : 'none';
-        }
-        var div = document.createElement('div');
-        div.innerHTML = msg;
-        warningBanner.appendChild(div);
-        if (type == 'error') div.style = 'background: red; padding: 10px;';
-        else {
-          if (type == 'warning') div.style = 'background: yellow; padding: 10px;';
-          setTimeout(function() {
-            warningBanner.removeChild(div);
-            updateBannerVisibility();
-          }, 5000);
-        }
-        updateBannerVisibility();
-      }
+        <div id="play" class="section">
+            <p id="ea-warning" class="error hideable hidden">
+                WARNING: You are playing an early version of the game.
+            </p>
+            <div id="canvas-container">
+                <canvas id="unity-canvas" width="960" height="600" tabindex="-1"></canvas>
+                <script id="unity-loader-script"></script>
+                <div id="game-settings">
+                    <div style="display: flex; gap: 10px">
+                        <div
+                            id="play-button"
+                            title="Play"
+                            class="button highlight"
+                            onclick="loadSelectedGameVersion()"
+                        >
+                            <svg width="32px" height="32px"><use href="#icon-play" /></svg>
+                        </div>
+                        <select
+                            title="Game Version"
+                            id="game-version-selector"
+                            onchange="selectGameVersion(this.value)"
+                        >
+                            <option value="Prototype 1">Prototype 1</option>
+                            <option value="Prototype 2">Prototype 2</option>
+                            <option value="Alpha">Alpha</option>
+                            <option value="Beta">Beta</option>
+                            <option selected value="Latest">Latest Release</option>
+                        </select>
+                    </div>
+                    <div class="button" title="Fullscreen" id="fullscreen-button">
+                        <svg width="32px" height="32px">
+                            <use href="#icon-fullscreen" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-      var buildUrl = "Build";
-      var loaderUrl = buildUrl + "/testbuild.loader.js";
-      var config = {
-        arguments: [],
-        dataUrl: buildUrl + "/testbuild.data.unityweb",
-        frameworkUrl: buildUrl + "/testbuild.framework.js.unityweb",
-        codeUrl: buildUrl + "/testbuild.wasm.unityweb",
-        streamingAssetsUrl: "StreamingAssets",
-        companyName: "Team 2",
-        productName: "Tag-Team Takedown",
-        productVersion: "0.5",
-        showBanner: unityShowBanner,
-      };
+        <div id="about" class="section">
+            <h2>About</h2>
+            Tag-Team Takedown is a 2-D fighting game inspired by Street Fighter and developed in
+            Unity. Players control two characters, a fast striker and a hard-hitting bruiser, and
+            can switch between them at any time; if either one is defeated, the match ends. The game
+            includes Normal mode (a single-round fight against one opponent) and Onslaught mode,
+            where the Player fights three consecutive waves against an enemy that deals more damage
+            each round. It also has a short interactive tutorial that covers movement, attacks,
+            blocking, and character swapping. The first release is planned for PC and WebGL, with
+            possible console ports later.
+            <h3>Trailer</h3>
+            <iframe
+                width="100%"
+                style="aspect-ratio: 16/9"
+                src="https://www.youtube-nocookie.com/embed/nXXHYs7Pt_U?si=wwtJGFMECTlkbSI0"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen
+            ></iframe>
+            <h3>Screenshots</h3>
+            <div
+                id="screenshots-carousel"
+                class="carousel"
+                data-path="Assets/Screenshots"
+                data-current="1"
+                data-last="5"
+            >
+                <img src="Assets/Screenshots/1.png" />
+                <div class="carousel-controls">
+                    <div class="button" onclick="turnImageCarousel('screenshots-carousel', -1)">
+                        Back
+                    </div>
+                    <p>1/5</p>
+                    <div class="button" onclick="turnImageCarousel('screenshots-carousel', 1)">
+                        Next
+                    </div>
+                </div>
+            </div>
+        </div>
 
-      // By default, Unity keeps WebGL canvas render target size matched with
-      // the DOM size of the canvas element (scaled by window.devicePixelRatio)
-      // Set this to false if you want to decouple this synchronization from
-      // happening inside the engine, and you would instead like to size up
-      // the canvas DOM size and WebGL render target sizes yourself.
-      // config.matchWebGLToCanvasSize = false;
+        <div id="devlog" class="section">
+            <h2>Technical Details</h2>
+            <p style="font-style: italic">This section is under construction</p>
+            <!-- This game was created in Unity 6000.0.44f1 and the source code can be viewed
+            <a href="https://github.com/trbie/stickfighter/tree/main/Source">here</a>.
+            <h3>Playtests</h3>
+            <h3>Postmortem Presentation</h3>
+            <h3>Game Presentation</h3>
+            <h3>Team Reflection</h3> -->
+        </div>
 
-      // If you would like all file writes inside Unity Application.persistentDataPath
-      // directory to automatically persist so that the contents are remembered when
-      // the user revisits the site the next time, uncomment the following line:
-      // config.autoSyncPersistentDataPath = true;
-      // This autosyncing is currently not the default behavior to avoid regressing
-      // existing user projects that might rely on the earlier manual
-      // JS_FileSystem_Sync() behavior, but in future Unity version, this will be
-      // expected to change.
+        <div id="credits" class="section">
+            <h2>Credits</h2>
+            Created by Team 2:
+            <ul class="credits-list">
+                <li>
+                    <div>
+                        <strong>Farris Abu-Hadba</strong> (Onslaught Mode and Balancing)
+                        <a
+                            class="button tiny"
+                            title="GitHub"
+                            href="https://github.com/Farris-Abuhadba"
+                        >
+                            <svg width="32px" height="32px"><use href="#icon-github"></use></svg>
+                        </a>
+                        <a class="button tiny" title="Email" href="mailto:fabuha@uw.edu">
+                            <svg width="32px" height="32px"><use href="#icon-email"></use></svg>
+                        </a>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <strong>Tristan Biesemeier</strong> (Character Swapping, UI, and Website)
+                        <a class="button tiny" title="GitHub" href="https://github.com/trbie">
+                            <svg width="32px" height="32px"><use href="#icon-github"></use></svg>
+                        </a>
+                        <a class="button tiny" title="Email" href="mailto:trbie@uw.edu">
+                            <svg width="32px" height="32px"><use href="#icon-email"></use></svg>
+                        </a>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <strong>Kyle Ricks</strong> (AI and Tutorial)
+                        <a class="button tiny" title="GitHub" href="https://github.com/Hum-Bao">
+                            <svg width="32px" height="32px"><use href="#icon-github"></use></svg>
+                        </a>
 
-      if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
-        // Mobile device style: fill the whole browser client area with the game canvas:
+                        <a class="button tiny" title="Email" href="mailto:kbricks@uw.edu">
+                            <svg width="32px" height="32px"><use href="#icon-email"></use></svg>
+                        </a>
+                    </div>
+                </li>
+            </ul>
+        </div>
 
-        var meta = document.createElement('meta');
-        meta.name = 'viewport';
-        meta.content = 'width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes';
-        document.getElementsByTagName('head')[0].appendChild(meta);
-        document.querySelector("#unity-container").className = "unity-mobile";
-        canvas.className = "unity-mobile";
-
-        // To lower canvas resolution on mobile devices to gain some
-        // performance, uncomment the following line:
-        // config.devicePixelRatio = 1;
-
-
-      } else {
-        // Desktop style: Render the game canvas in a window that can be maximized to fullscreen:
-        canvas.style.width = "960px";
-        canvas.style.height = "600px";
-      }
-
-      document.querySelector("#unity-loading-bar").style.display = "block";
-
-      var script = document.createElement("script");
-      script.src = loaderUrl;
-      script.onload = () => {
-        createUnityInstance(canvas, config, (progress) => {
-          document.querySelector("#unity-progress-bar-full").style.width = 100 * progress + "%";
-              }).then((unityInstance) => {
-                document.querySelector("#unity-loading-bar").style.display = "none";
-                document.querySelector("#unity-fullscreen-button").onclick = () => {
-                  unityInstance.SetFullscreen(1);
-                };
-
-              }).catch((message) => {
-                alert(message);
-              });
-            };
-
-      document.body.appendChild(script);
-
-    </script>
-  </body>
+        <div id="references" class="section">
+            <h2>References</h2>
+            <ul>
+                <li>
+                    <a href="https://rgsdev.itch.io/animated-stick-figure-character-2d-free-cc0">
+                        RGS Dev's Animated Stick Figure Pack
+                    </a>
+                    for the character sprites
+                </li>
+                <li>
+                    <a href="https://craftpix.net/categorys/game-backgrounds/">
+                        Craftpix's Game Backgrounds
+                    </a>
+                    for the main backgrounds
+                </li>
+                <li>
+                    <a href="https://kenney.nl/assets/prototype-textures">
+                        Kenny's Prototype Textures
+                    </a>
+                    for the tutorial background
+                </li>
+                <li>
+                    <a href="https://juliocacko.itch.io/free-input-prompts">
+                        Julio Cacko's Free Input Prompt Icons
+                    </a>
+                    for the keyboard and controller button icons
+                </li>
+                <li>
+                    <a href="https://fonts.google.com/specimen/Gaegu">JIKJI SOFT's Gaegu Font</a>
+                    for the main text font
+                </li>
+                <li>
+                    <a href="https://fonts.google.com/specimen/Knewave">
+                        Tyler Finck's Knewave Font
+                    </a>
+                    for the title text font
+                </li>
+                <li>
+                    <a href="https://www.svgrepo.com/">SVG Repo</a>
+                    for the <a href="https://www.svgrepo.com/svg/532511/play">play</a>,
+                    <a href="https://www.svgrepo.com/svg/503031/fullscreen">fullscreen</a>,
+                    <a href="https://www.svgrepo.com/svg/504388/github">GitHub</a>, and
+                    <a href="https://www.svgrepo.com/svg/488570/envelope">email</a> icons
+                </li>
+            </ul>
+        </div>
+    </body>
 </html>
