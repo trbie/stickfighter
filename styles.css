@@ -228,6 +228,10 @@ select {
     gap: 10px;
 }
 
+#unity-loading-indicator {
+    width: 100%;
+}
+
 #game-settings {
     width: 100%;
     display: flex;

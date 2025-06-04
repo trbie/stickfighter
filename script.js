@@ -1,6 +1,7 @@
 const canvas = document.querySelector("#unity-canvas");
 
 const gameVersionSelector = document.querySelector("#game-version-selector");
+const loadingIndictor = document.querySelector("#unity-loading-indicator");
 const playBtn = document.querySelector("#play-button");
 const fullscreenBtn = document.querySelector("#fullscreen-button");
 const earlyAccessText = document.querySelector("#ea-warning");
@@ -35,8 +36,13 @@ function loadGameVersion(version) {
     unityLoaderScript.id = "unity-loader-script";
 
     unityLoaderScript.onload = () => {
-        createUnityInstance(canvas, config, (progress) => {})
+        loadingIndictor.classList.remove("hidden");
+        createUnityInstance(canvas, config, (progress) => {
+            loadingIndictor.textContent = `Loading... (${Math.floor(progress * 100)}%)`;
+        })
             .then((unityInstance) => {
+                loadingIndictor.classList.add("hidden");
+
                 fullscreenBtn.onclick = () => {
                     unityInstance.SetFullscreen(1);
                 };
