@@ -226,6 +226,9 @@ select {
     flex-direction: column;
     align-items: center;
     gap: 10px;
+    max-width: 960px;
+    max-height: 600px;
+    overflow: hidden;
 }
 
 #unity-loading-indicator {
@@ -240,12 +243,17 @@ select {
 
 canvas {
     background-color: var(--text-color);
-    width: 960px !important;
-    height: 600px !important;
+    width: 960px;
+    height: 600px;
+    max-width: 960px;
+    max-height: 600px;
+    display: block;
 }
 
 canvas:fullscreen {
     border-radius: 0px;
+    max-width: none;
+    max-height: none;
 }
 
 .error {
