@@ -240,6 +240,8 @@ select {
 
 canvas {
     background-color: var(--text-color);
+    width: 960px !important;
+    height: 600px !important;
 }
 
 canvas:fullscreen {
