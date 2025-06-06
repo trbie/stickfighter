@@ -87,34 +87,34 @@
             <div id="canvas-container">
                 <canvas id="unity-canvas" width="960" height="600" tabindex="-1"></canvas>
                 <script id="unity-loader-script"></script>
-                <div id="unity-loading-indicator" class="hideable hidden">Loading... (0%)</div>
-                <div id="game-settings">
-                    <div style="display: flex; gap: 10px">
-                        <div
-                            id="play-button"
-                            title="Play"
-                            class="button highlight"
-                            onclick="loadSelectedGameVersion()"
-                        >
-                            <svg width="32px" height="32px"><use href="#icon-play" /></svg>
-                        </div>
-                        <select
-                            title="Game Version"
-                            id="game-version-selector"
-                            onchange="selectGameVersion(this.value)"
-                        >
-                            <option value="Prototype 1">Prototype 1</option>
-                            <option value="Prototype 2">Prototype 2</option>
-                            <option value="Alpha">Alpha</option>
-                            <option value="Beta">Beta</option>
-                            <option selected value="Latest">Latest Release</option>
-                        </select>
+            </div>
+            <div id="unity-loading-indicator" class="hideable hidden">Loading... (0%)</div>
+            <div id="game-settings">
+                <div style="display: flex; gap: 10px">
+                    <div
+                        id="play-button"
+                        title="Play"
+                        class="button highlight"
+                        onclick="loadSelectedGameVersion()"
+                    >
+                        <svg width="32px" height="32px"><use href="#icon-play" /></svg>
                     </div>
-                    <div class="button" title="Fullscreen" id="fullscreen-button">
-                        <svg width="32px" height="32px">
-                            <use href="#icon-fullscreen" />
-                        </svg>
-                    </div>
+                    <select
+                        title="Game Version"
+                        id="game-version-selector"
+                        onchange="selectGameVersion(this.value)"
+                    >
+                        <option value="Prototype 1">Prototype 1</option>
+                        <option value="Prototype 2">Prototype 2</option>
+                        <option value="Alpha">Alpha</option>
+                        <option value="Beta">Beta</option>
+                        <option selected value="Latest">Latest Release</option>
+                    </select>
+                </div>
+                <div class="button" title="Fullscreen" id="fullscreen-button">
+                    <svg width="32px" height="32px">
+                        <use href="#icon-fullscreen" />
+                    </svg>
                 </div>
             </div>
         </div>
