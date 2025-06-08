@@ -94,7 +94,7 @@
                     <div
                         id="play-button"
                         title="Play"
-                        class="button highlight"
+                        class="button icon highlight"
                         onclick="loadSelectedGameVersion()"
                     >
                         <svg width="32px" height="32px"><use href="#icon-play" /></svg>
@@ -111,7 +111,7 @@
                         <option selected value="Latest">Latest Release</option>
                     </select>
                 </div>
-                <div class="button" title="Fullscreen" id="fullscreen-button">
+                <div class="button icon" title="Fullscreen" id="fullscreen-button">
                     <svg width="32px" height="32px">
                         <use href="#icon-fullscreen" />
                     </svg>
@@ -129,7 +129,7 @@
             each round. It also has a short interactive tutorial that covers movement, attacks,
             blocking, and character swapping. The first release is planned for PC using WebGL, with
             possible console ports later.
-            <h3>Trailer</h3>
+            <h4>Trailer</h4>
             <iframe
                 width="100%"
                 style="aspect-ratio: 16/9"
@@ -140,7 +140,7 @@
                 referrerpolicy="strict-origin-when-cross-origin"
                 allowfullscreen
             ></iframe>
-            <h3>Screenshots</h3>
+            <h4>Screenshots</h4>
             <div
                 id="screenshots-carousel"
                 class="carousel"
@@ -162,14 +162,175 @@
         </div>
 
         <div id="devlog" class="section">
-            <h2>Technical Details</h2>
-            <p style="font-style: italic">This section is under construction</p>
-            <!-- This game was created in Unity 6000.0.44f1 and the source code can be viewed
+            <h2>Devlog</h2>
+            This game was created in Unity 6000.0.44f1 and the source code can be viewed
             <a href="https://github.com/trbie/stickfighter/tree/main/Source">here</a>.
             <h3>Playtests</h3>
-            <h3>Postmortem Presentation</h3>
-            <h3>Game Presentation</h3>
-            <h3>Team Reflection</h3> -->
+            <h4>Alpha</h4>
+            At the alpha stage of Tag Team Takedown we had the movement, player swapping, and basic
+            blocking implemented. The UI was still in progress, and we only had a very basic
+            background. We tested with about 6 players from the class.
+            <br />Observations:
+            <ul class="indented">
+                <li class="bold">Core Mechanics</li>
+                <ul>
+                    <li>
+                        Players liked the ability to swap between Speedy and Tanky, but people often
+                        forgot whose health bar is for who
+                    </li>
+                    <li>
+                        Speedy felt good to control but Tanky was just objectively the better
+                        character due to the stats
+                    </li>
+                </ul>
+                <li class="bold">Gameplay</li>
+                <ul>
+                    <li>
+                        Players often just spammed punch due to no combo system or incentive to vary
+                        moves
+                    </li>
+                    <li>
+                        Blocking was underused because players didn't feel like it was doing
+                        anything
+                    </li>
+                </ul>
+                <li class="bold">Planned Changes</li>
+                <ul>
+                    <li>
+                        Improve healthbars so active character always shows health at the top of the
+                        screen
+                    </li>
+                    <li>Tone down Tanky damage and remove his extra added health</li>
+                    <li>Improve UI and background art</li>
+                    <li>Add a tutorial</li>
+                </ul>
+            </ul>
+            <h4>Beta</h4>
+            By the beta phase we had a start menu with a tutorial, some nice background art, a
+            better UI, and improved the balancing. We invited 7 of our family and friends to test
+            the game. We chose about 3 people who have a history of playing games, 2 who
+            infrequently play, and 2 who never touch games.
+            <br />Observations:
+            <ul class="indented">
+                <li class="bold">Core Mechanics</li>
+                <ul>
+                    <li>
+                        Difficulty could use some adjustments as the 3 people who played games
+                        before thought it was easy while the others thought it was difficult
+                    </li>
+                    <li>
+                        The 3 good players found Speedy more enjoyable and often did better on him,
+                        while the less experienced players had to rely on Tanky as a sort of crutch
+                    </li>
+                    <li>
+                        They really liked the block animation, as well as the fact that blocking now
+                        feels impactful
+                    </li>
+                </ul>
+                <li class="bold">Gameplay</li>
+                <ul>
+                    <li>The tutorial was well received</li>
+                    <li>
+                        Button layout was improved but people wanted on-screen inputs for controller
+                    </li>
+                </ul>
+                <li class="bold">Planned Changes</li>
+                <ul>
+                    <li>Add on-screen controller inputs</li>
+                    <li>Add separate Onslaught mode for more experienced players</li>
+                    <li>Add audio</li>
+                </ul>
+            </ul>
+            <h4>Final</h4>
+            For the final playtest we got 10 people to test our game from both the class as well as
+            some friends and family. All the testers followed a script of first going into the
+            tutorial then playing 3 rounds of normal mode then playing 1 game of Onslaught mode.
+            <br />Observations:
+            <ul class="indented">
+                <li class="bold">General Impressions</li>
+                <ul>
+                    <li>Players liked the fast paced combat</li>
+                    <li>Players liked the contrast between Speedy and Tanky</li>
+                    <li>
+                        Onslaught mode was popular, with the increase in difficulty feeling fair as
+                        well as the constant fighting making the situation feel chaotic
+                    </li>
+                </ul>
+                <li class="bold">Positive Feedback</li>
+                <ul>
+                    <li>Input icons changing based on the device used was very appreciated</li>
+                    <li>The audio feels responsive and fits the theme</li>
+                    <li>UI elements like wave counters and health bars are easy to understand</li>
+                    <li>Character swapping adds a layer of strategy</li>
+                </ul>
+                <li class="bold">Remaining Issues</li>
+                <ul>
+                    <li>The game is still too spammy</li>
+                    <li>Normal mode is not as popular as Onslaught mode</li>
+                    <li>Blocking would sometimes not register</li>
+                </ul>
+                <li class="bold">Planned Changes</li>
+                <ul>
+                    <li>Fix blocking sometimes not registering properly</li>
+                    <li>Fix heavy hit sometimes not registering properly</li>
+                </ul>
+                <li class="bold">Future Features</li>
+                <ul>
+                    <li>
+                        Add a stamina system so the Player can't use the same attack more than 3
+                        times in a row
+                    </li>
+                    <li>Add more attack types and combos</li>
+                    <li>Add an endless mode</li>
+                    <li>
+                        Add mutiplayer support, where 1 player controls Speedy and the other
+                        controls Tanky
+                    </li>
+                </ul>
+            </ul>
+            <h3>Postmortem / Game Presentation</h3>
+            <div
+                id="presentation-carousel"
+                class="carousel"
+                data-path="Assets/Final Presentation"
+                data-current="1"
+                data-last="5"
+            >
+                <img src="Assets/Final Presentation/1.png" />
+                <div class="carousel-controls">
+                    <div class="button" onclick="turnImageCarousel('presentation-carousel', -1)">
+                        Back
+                    </div>
+                    <p>1/5</p>
+                    <div class="button" onclick="turnImageCarousel('presentation-carousel', 1)">
+                        Next
+                    </div>
+                </div>
+            </div>
+            <h3>Team Reflection</h3>
+            Our team worked really well together throughout the entire quarter. We communicated
+            clearly, split up the work evenly, and consistently met the deadlines we set. One thing
+            we did especially well was having a unified vision for how our game should turn out.
+            This is reflected in our mechanics and game modes, which all blended together smoothly.
+            Because we were all aligned on the vision, we were able to work on different parts of
+            the game independently and merge them together without issues.
+            <br />
+            <br />
+            If we had another two weeks to develop the game, our three highest priority items would
+            be:
+            <ol class="indented">
+                <li>
+                    Adding a stamina system that prevents using the same move three times in a row,
+                    to reduce spamming
+                </li>
+                <li>
+                    Adding unique move sets for Speedy and Tanky, to encourage players to use both
+                    characters
+                </li>
+                <li>Adding move combos, to create more dynamic and engaging combat</li>
+            </ol>
+            We think that these features would enhance replayability and improve the overall game
+            balance.
         </div>
 
         <div id="credits" class="section">
@@ -193,7 +354,7 @@
                 </li>
                 <li>
                     <div>
-                        <strong>Tristan Biesemeier</strong> (Character Swapping, UI, and Website)
+                        <strong>Tristan Biesemeier</strong> (Player Controller, UI, and Website)
                         <a class="button tiny" title="GitHub" href="https://github.com/trbie">
                             <svg width="32px" height="32px"><use href="#icon-github"></use></svg>
                         </a>

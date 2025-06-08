@@ -29,7 +29,7 @@ html {
 body {
     font-family: "Gaegu", sans-serif;
     font-style: normal;
-    font-size: 32px;
+    font-size: 30px;
 
     padding: 10px;
     display: flex;
@@ -58,6 +58,24 @@ h1.title {
 
     -webkit-text-stroke: 1px;
     -webkit-text-stroke-color: var(--text-color);
+}
+
+h2,
+h3,
+h4 {
+    text-transform: uppercase;
+}
+
+h2 {
+    font-size: 48px;
+}
+
+h3 {
+    font-size: 42px;
+}
+
+h4 {
+    font-size: 36px;
 }
 
 .header {
@@ -104,21 +122,33 @@ a {
     color: var(--primary-color);
 }
 
-ul {
+ul,
+ol {
     margin-left: 30px;
 
-    &.credits-list li div {
-        display: flex;
-        align-items: center;
-        gap: 10px;
+    &.credits-list li {
+        margin-bottom: 5px;
+
+        & div {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
     }
+
+    &.indented {
+        margin-left: 45px;
+    }
+}
+
+.bold {
+    font-weight: bold;
 }
 
 .button,
 select {
     border: var(--border-color) solid var(--border-width);
     cursor: pointer;
-    height: 52px;
     padding: 0px 10px;
     user-select: none;
     color: var(--text-color);
@@ -127,7 +157,7 @@ select {
     transition: ease-in-out 200ms;
     box-shadow: 4px 4px 0px 0px var(--shadow-color);
     transform: translate(-4px, -4px);
-    font-size: 42px;
+    font-size: 32px;
 
     text-decoration: none;
     display: flex;
@@ -167,6 +197,10 @@ select {
         width: fit-content;
         height: min-content;
         font-size: 32px;
+    }
+
+    &.icon {
+        aspect-ratio: 1 / 1;
     }
 }
 
@@ -273,6 +307,7 @@ canvas:fullscreen {
     & img {
         width: 100%;
         aspect-ratio: 16 / 9;
+        border: solid var(--border-color) var(--border-width);
     }
 
     & .carousel-controls {
